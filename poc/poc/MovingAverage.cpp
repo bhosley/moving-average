@@ -19,8 +19,7 @@ void MovingAverage::newValue()
 	currentValue++;
 }
 
-//RandomMovingAverage::RandomMovingAverage() {}
-//RandomMovingAverage::~RandomMovingAverage() {}
+/*----------------------Random-Moving-Average----------------------*/
 
 void RandomMovingAverage::newValue()
 {
@@ -29,3 +28,7 @@ void RandomMovingAverage::newValue()
 	currentValue = currentValue + 
 		firstValue / y - secondValue / y;
 }
+
+/*----------------------Simple-Moving-Average----------------------*/
+/*---------------------Weighted-Moving-Average---------------------*/
+/*-------------------Exponential-Moving-Average--------------------*/

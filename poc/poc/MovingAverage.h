@@ -13,6 +13,7 @@ protected:
 	int y;
 private:
 };
+
 class RandomMovingAverage : public MovingAverage
 {
 public:
