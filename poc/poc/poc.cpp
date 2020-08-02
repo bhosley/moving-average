@@ -3,9 +3,10 @@
 #include <iostream>
 using namespace std;
 
+#include "MovingAverage.h"
+
 int currentDataPoint = 0;
 float simple_moving_average_previous = 0;
-float random_moving_average_previous = 0;
 
 // Simple moving average plot
 int NUM_Y_VALUES = 17;
@@ -44,6 +45,8 @@ float simple_moving_average() {
 	simple_moving_average_previous = simple_moving_average_current;
 	return simple_moving_average_current;
 }
+
+float random_moving_average_previous = 0;
 
 // Same as simple moving average, but with randomly-generated data points.
 float random_moving_average() {
