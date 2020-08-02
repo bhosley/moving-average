@@ -1,7 +1,8 @@
 #include "MovingAverage.h"
+#include <stdlib.h>
 
-MovingAverage::MovingAverage() { currentValue = 0; }
-MovingAverage::MovingAverage(float f) { currentValue = f; }
+MovingAverage::MovingAverage() { currentValue = 0; y = 1; }
+MovingAverage::MovingAverage(float f) { currentValue = f; y = 1; }
 MovingAverage::~MovingAverage() {}
 
 float MovingAverage::getValue()
@@ -15,15 +16,16 @@ float MovingAverage::getNewValue()
 }
 void MovingAverage::newValue() 
 {
-	currentValue = currentValue++;
+	currentValue++;
 }
 
+//RandomMovingAverage::RandomMovingAverage() {}
+//RandomMovingAverage::~RandomMovingAverage() {}
 
-
-RandomMovingAverage::RandomMovingAverage()
+void RandomMovingAverage::newValue()
 {
-}
-
-RandomMovingAverage::~RandomMovingAverage()
-{
+	float firstValue = rand() % 10 + 1;			// random(1, 10);
+	float secondValue = rand() % 10 + 1;		// random(1, 10);
+	currentValue = currentValue + 
+		firstValue / y - secondValue / y;
 }

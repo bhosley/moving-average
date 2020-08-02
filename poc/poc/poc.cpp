@@ -1,6 +1,7 @@
 //#include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
+#include <iomanip> 
 using namespace std;
 
 #include "MovingAverage.h"
@@ -83,10 +84,9 @@ int main()
 	while (true)
 	{
 		cin.get();
-		i++;
-		cout << i << "    "
-			<< "MA: "  <<  ma.getNewValue()
-			<< "RMA: " << rma.getNewValue()
+		cout << left << setw(6) << ++i 
+			<< "MA: "  << setw(8) <<  ma.getNewValue()
+			<< "RMA: " << setw(8) << rma.getNewValue()
 			;
 		
 	}

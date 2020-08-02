@@ -7,15 +7,15 @@ public:
 	~MovingAverage();
 	float getValue();
 	float getNewValue();
-	void newValue();
-private:
+	virtual void newValue();
+protected:
 	float currentValue;
+	int y;
+private:
 };
 class RandomMovingAverage : public MovingAverage
 {
 public:
-	RandomMovingAverage();
-	~RandomMovingAverage();
+	void newValue() override;
 private:
-
 };
