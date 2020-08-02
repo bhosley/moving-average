@@ -60,7 +60,7 @@ float random_moving_average() {
 	return random_moving_average_current;
 }
 
-
+/*
 int main()
 {
 	cout << "Please press enter for new SMA value.";
@@ -70,5 +70,25 @@ int main()
 		cin.get();
 		cout << "" << simple_moving_average();
 	}	
+	return 0;
+}
+*/
+
+int main()
+{
+	cout << "Please press enter for new MA Test.";
+	int i = 0;
+	MovingAverage ma;
+	RandomMovingAverage rma = RandomMovingAverage();
+	while (true)
+	{
+		cin.get();
+		i++;
+		cout << i << "    "
+			<< "MA: "  <<  ma.getNewValue()
+			<< "RMA: " << rma.getNewValue()
+			;
+		
+	}
 	return 0;
 }

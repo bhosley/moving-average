@@ -1,22 +1,29 @@
 #include "MovingAverage.h"
 
-MovingAverage::MovingAverage()
-{
-}
-
-MovingAverage::~MovingAverage()
-{
-}
+MovingAverage::MovingAverage() { currentValue = 0; }
+MovingAverage::MovingAverage(float f) { currentValue = f; }
+MovingAverage::~MovingAverage() {}
 
 float MovingAverage::getValue()
 {
-	return 0.0f;
+	return currentValue;
 }
 float MovingAverage::getNewValue()
 {
-	return 0.0f;
+	newValue();
+	return currentValue;
 }
 void MovingAverage::newValue() 
 {
+	currentValue = currentValue++;
+}
 
+
+
+RandomMovingAverage::RandomMovingAverage()
+{
+}
+
+RandomMovingAverage::~RandomMovingAverage()
+{
 }
