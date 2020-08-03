@@ -30,5 +30,18 @@ void RandomMovingAverage::newValue()
 }
 
 /*----------------------Simple-Moving-Average----------------------*/
+
+void SimpleMovingAverage::newValue()
+{
+	short startingValue = currentValue;
+	short endingValue = (currentIndex + 1) % y;
+	currentValue = currentValue +
+		(yValues[startingValue]) / y -
+		(yValues[endingValue]) / y;
+
+	currentIndex++;
+	currentIndex = currentIndex % y;
+}
+
 /*---------------------Weighted-Moving-Average---------------------*/
 /*-------------------Exponential-Moving-Average--------------------*/
