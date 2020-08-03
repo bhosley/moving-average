@@ -20,3 +20,9 @@ public:
 	void newValue() override;
 private:
 };
+class SimpleMovingAverage : MovingAverage 
+{
+public:
+	void newValue() override;
+private:
+};
