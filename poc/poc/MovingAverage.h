@@ -23,12 +23,15 @@ private:
 class RandomMovingAverage : public MovingAverage
 {
 public:
+	RandomMovingAverage();
 	void newValue() override;
 private:
 };
 class SimpleMovingAverage : public MovingAverage 
 {
 public:
+	SimpleMovingAverage();
+	SimpleMovingAverage(float a[], int initialValue);
 	void newValue() override;
 private:
 	
