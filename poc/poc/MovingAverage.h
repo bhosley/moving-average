@@ -4,21 +4,21 @@ class MovingAverage
 {
 public:
 	MovingAverage();
-	MovingAverage(float initialValue);
-	MovingAverage(float i[]);
-	MovingAverage(float initialValue, float i[]);
-	MovingAverage(float i[], float initialValue);
+	MovingAverage(int initialValue);
+	MovingAverage(int initialValue, float i[]);
 	~MovingAverage();
 	float getValue();
 	float getNewValue();
 	virtual void newValue();
 	void addValue(float f);
 	void changeValue(int i, float f);
-protected:
+//
+	void init(int initialValue, float i[]);
 	float currentValue;
 	int y;
 	std::vector<int> yVals;
 	int currentIndex = 0;
+protected:
 private:
 };
 
