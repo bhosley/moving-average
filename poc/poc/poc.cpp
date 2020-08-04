@@ -6,12 +6,10 @@ using namespace std;
 
 #include "MovingAverage.h"
 
+// Simple moving average plot
 int currentDataPoint = 0;
 float simple_moving_average_previous = 0;
-
-// Simple moving average plot
 int NUM_Y_VALUES = 17;
-
 float yValues[] = {
   0,
   7,
@@ -48,7 +46,6 @@ float simple_moving_average() {
 }
 
 float random_moving_average_previous = 0;
-
 // Same as simple moving average, but with randomly-generated data points.
 float random_moving_average() {
 	float firstValue = rand() % 10 + 1;			// random(1, 10);
@@ -64,31 +61,25 @@ float random_moving_average() {
 /*
 int main()
 {
-	cout << "Please press enter for new SMA value.";
-	// int i;
-	while (true)
-	{
-		cin.get();
-		cout << "" << simple_moving_average();
-	}	
-	return 0;
+	
 }
 */
-
 int main()
 {
 	cout << "Please press enter for new MA Test.";
 	int i = 0;
 	MovingAverage ma;
 	RandomMovingAverage rma = RandomMovingAverage();
+	// SimpleMovingAverage sma = SimpleMovingAverage();
+
 	while (true)
 	{
 		cin.get();
 		cout << left << setw(6) << ++i 
 			<< "MA: "  << setw(8) <<  ma.getNewValue()
 			<< "RMA: " << setw(8) << rma.getNewValue()
+			// << "SMA: " << setw(8) << sma.getNewValue()
 			;
-		
 	}
 	return 0;
 }
