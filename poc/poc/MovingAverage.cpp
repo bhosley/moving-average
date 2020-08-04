@@ -2,17 +2,16 @@
 #include <stdlib.h>
 #include <vector>
 
-MovingAverage::MovingAverage() { float a[] = { 0.0 }; init(0, a); }
-MovingAverage::MovingAverage(int initialValue) { float a[] = { 0.0 }; init(initialValue, a); }
-MovingAverage::MovingAverage(int initialValue, float i[]) { init(initialValue, i); }
-MovingAverage::~MovingAverage() {}
-
-void MovingAverage::init(int initialValue, float i[])
+MovingAverage::MovingAverage() { float a[] = { 0.0f }; init(a); }
+MovingAverage::MovingAverage(float i[], int initialValue ) { init(i, initialValue); }
+void MovingAverage::init(float i[], int initialValue )
 {
 	currentValue = initialValue;
 	y = sizeof(i) / sizeof(i[0]);
 	yVals.assign(i, i + 1);
 }
+
+MovingAverage::~MovingAverage() {}
 float MovingAverage::getValue()
 {
 	return currentValue;
@@ -44,7 +43,6 @@ void RandomMovingAverage::newValue()
 	float secondValue = rand() % 10 + 1;		// random(1, 10);
 	currentValue = currentValue + 
 		firstValue / y - secondValue / y;
-		//firstValue / 1 - secondValue / 1;
 }
 
 /*----------------------Simple-Moving-Average----------------------*/
