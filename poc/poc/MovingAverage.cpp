@@ -54,5 +54,23 @@ void SimpleMovingAverage::newValue()
 	currentIndex = (currentIndex + rand() % 2 + 1) % y;
 }
 
+/*--------------------Cumulative-Moving-Average--------------------*/
+
+void CumulativeMovingAverage::newValue() 
+{
+
+}
+
 /*---------------------Weighted-Moving-Average---------------------*/
+
+void SimpleMovingAverage::newValue()
+{
+
+}
+
 /*-------------------Exponential-Moving-Average--------------------*/
+
+void SimpleMovingAverage::newValue()
+{
+
+}
