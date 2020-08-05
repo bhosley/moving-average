@@ -36,6 +36,7 @@ class CumulativeMovingAverage : public MovingAverage
 public:
 	void newValue() override;
 private:
+	int x = 0;
 };
 class WeightedMovingAverage : public MovingAverage
 {
