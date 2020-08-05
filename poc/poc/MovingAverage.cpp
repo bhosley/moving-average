@@ -58,6 +58,7 @@ void SimpleMovingAverage::newValue()
 
 void CumulativeMovingAverage::newValue() 
 {
+	// Arithmetic mean of accumulating values
 	currentValue = ((currentValue * x) + yVals[currentIndex]) / (x + 1);
 	currentIndex = (currentIndex + rand() % 2 + 1) % y;
 	x++;
@@ -67,7 +68,10 @@ void CumulativeMovingAverage::newValue()
 
 void WeightedMovingAverage::newValue()
 {
-	
+	// Airthmetic mean in which earlier values have higher weight
+	currentValue = ((currentValue * x) + yVals[currentIndex]) / (x);
+	currentIndex = (currentIndex + rand() % 2 + 1) % y;
+	x++;
 }
 
 /*-------------------Exponential-Moving-Average--------------------*/
