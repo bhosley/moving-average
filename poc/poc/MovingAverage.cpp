@@ -1,6 +1,7 @@
 #include "MovingAverage.h"
 #include <stdlib.h>
 #include <vector>
+#include <math.h>
 
 MovingAverage::MovingAverage() { float a[] = { 0.0f }; init(a, 0); }
 void MovingAverage::init(float a[], int initialValue)
@@ -78,5 +79,10 @@ void WeightedMovingAverage::newValue()
 
 void ExponentialMovingAverage::newValue()
 {
+	currentNumerator = currentNumerator + (yVals[currentIndex] * pow( a,x ));
+	currentDenominator = currentDenominator + pow( a,x );
 	
+	currentValue = currentNumerator / currentDenominator;
+	currentIndex = (currentIndex + rand() % 2 + 1) % y;
+	x++;
 }
