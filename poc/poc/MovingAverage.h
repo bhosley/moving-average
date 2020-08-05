@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+
 class MovingAverage
 {
 public:
@@ -50,4 +51,8 @@ class ExponentialMovingAverage : public MovingAverage
 public:
 	void newValue() override;
 private:
+	float currentDenominator = 0.0f;
+	float currentNumerator = 0.0f;
+	float a = 0.9f;
+	int x = 1;
 };
