@@ -36,13 +36,14 @@ class CumulativeMovingAverage : public MovingAverage
 public:
 	void newValue() override;
 private:
-	int x = 0;
+	int x = 1;
 };
 class WeightedMovingAverage : public MovingAverage
 {
 public:
 	void newValue() override;
 private:
+	int x = 1;
 };
 class ExponentialMovingAverage : public MovingAverage
 {
