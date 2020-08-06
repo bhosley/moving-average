@@ -40,12 +40,12 @@ void MovingAverage::changeValue(int i, float f)
 
 /*----------------------Random-Moving-Average----------------------*/
 
-void RandomMovingAverage::newValue()
+float RandomMovingAverage::addValue(float f)
 {
-	float firstValue = rand() % 10 + 1;			// random(1, 10);
-	float secondValue = rand() % 10 + 1;		// random(1, 10);
-	currentValue = currentValue + 
-		firstValue / y - secondValue / y;
+	float a = rand() % 10 + 1;		// random(1, 10);
+	float b = rand() % 10 + 1;		// random(1, 10);
+	currentValue = currentValue + ((a-b)/15);
+	return currentValue;
 }
 
 /*----------------------Simple-Moving-Average----------------------*/
