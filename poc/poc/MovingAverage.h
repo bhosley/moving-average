@@ -26,14 +26,17 @@ private:
 class RandomMovingAverage : public MovingAverage
 {
 public:
-	void newValue() override;
+	float addValue(float f) override;
 private:
 };
 class SimpleMovingAverage : public MovingAverage 
 {
 public:
-	void newValue() override;
+	SimpleMovingAverage();
+	SimpleMovingAverage(float f);
+	float addValue(float f) override;
 private:
+	float previousValue = 0.0f;
 };
 class CumulativeMovingAverage : public MovingAverage
 {
@@ -46,6 +49,7 @@ private:
 class WeightedMovingAverage : public MovingAverage
 {
 public:
+	WeightedMovingAverage();
 	WeightedMovingAverage(float f);
 	float addValue(float f) override;
 private:
