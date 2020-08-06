@@ -68,12 +68,12 @@ void CumulativeMovingAverage::newValue()
 
 /*---------------------Weighted-Moving-Average---------------------*/
 
-void WeightedMovingAverage::newValue()
+float WeightedMovingAverage::addValue(float f)
 {
-	// Airthmetic mean in which earlier values have higher weight
-	currentValue = ((currentValue * x) + yVals[currentIndex]) / (x);
-	currentIndex = (currentIndex + rand() % 2 + 1) % y;
+	// Arithmetic mean in which earlier values have higher weight
+	currentValue = ((currentValue * x) + f) / (x);
 	x++;
+	return currentValue;
 }
 
 /*-------------------Exponential-Moving-Average--------------------*/
