@@ -25,10 +25,11 @@ void MovingAverage::newValue()
 {
 	currentValue++;
 }
-void MovingAverage::addValue(float f)
+float MovingAverage::addValue(float f)
 {
 	yVals.push_back(f);
 	y++;
+	return currentValue;
 }
 void MovingAverage::changeValue(int i, float f)
 {
@@ -77,12 +78,11 @@ void WeightedMovingAverage::newValue()
 
 /*-------------------Exponential-Moving-Average--------------------*/
 
-void ExponentialMovingAverage::newValue()
+float ExponentialMovingAverage::addValue(float f)
 {
-	currentNumerator = currentNumerator + (yVals[currentIndex] * pow( a,x ));
+	currentNumerator = currentNumerator + (f * pow( a,x ));
 	currentDenominator = currentDenominator + pow( a,x );
-	
 	currentValue = currentNumerator / currentDenominator;
-	currentIndex = (currentIndex + rand() % 2 + 1) % y;
 	x++;
+	return currentValue;
 }
