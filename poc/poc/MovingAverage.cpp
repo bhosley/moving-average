@@ -50,12 +50,14 @@ void RandomMovingAverage::newValue()
 
 /*----------------------Simple-Moving-Average----------------------*/
 
-void SimpleMovingAverage::newValue()
+SimpleMovingAverage::SimpleMovingAverage() {}
+SimpleMovingAverage::SimpleMovingAverage(float f) { init(f); }
+float SimpleMovingAverage::addValue(float f)
 {
-	currentValue = currentValue +
-				(yVals[currentIndex]) / y -
-				(yVals[(currentIndex + 1) % y]) / y;
-	currentIndex = (currentIndex + rand() % 2 + 1) % y;
+	x++;
+	currentValue = currentValue + ((f - previousValue) / x);
+	previousValue = currentValue;
+	return currentValue;
 }
 
 /*--------------------Cumulative-Moving-Average--------------------*/
@@ -65,19 +67,21 @@ CumulativeMovingAverage::CumulativeMovingAverage(float f) { init(f); }
 float CumulativeMovingAverage::addValue(float f)
 {
 	// Arithmetic mean of accumulating values
-	currentValue = ((currentValue * x) + f) / (x + 1);
 	x++;
+	//currentValue = ( f + (x - 1) * currentValue) / (x);
+	currentValue = currentValue + ((f - currentValue) / (x));
 	return currentValue;
 }
 
 /*---------------------Weighted-Moving-Average---------------------*/
 
+WeightedMovingAverage::WeightedMovingAverage() {}
 WeightedMovingAverage::WeightedMovingAverage(float f) { init(f); }
 float WeightedMovingAverage::addValue(float f)
 {
 	// Arithmetic mean in which earlier values have higher weight
-	currentValue = ((currentValue * x) + f) / (x);
 	x++;
+	currentValue = ((currentValue * x) + f) / (x);
 	return currentValue;
 }
 
