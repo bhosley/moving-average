@@ -32,9 +32,16 @@ int main()
 	MovingAverage ma;
 	RandomMovingAverage rma = RandomMovingAverage();
 	SimpleMovingAverage sma = SimpleMovingAverage();
+	CumulativeMovingAverage cma = CumulativeMovingAverage();
+	WeightedMovingAverage wma = WeightedMovingAverage();
+	ExponentialMovingAverage ema = ExponentialMovingAverage();
+
 	for (float f : a) {
 		rma.addValue(f);
 		sma.addValue(f);
+		cma.addValue(f);
+		wma.addValue(f);
+		ema.addValue(f);
 	}
 
 	while (true)
@@ -44,6 +51,9 @@ int main()
 			<< "MA:  " << setw(6) << ma.getNewValue()
 			<< "RMA: " << setw(10) << rma.getNewValue()
 			<< "SMA: " << setw(10) << sma.getNewValue()
+			<< "CMA: " << setw(10) << cma.getNewValue()
+			<< "WMA: " << setw(10) << wma.getNewValue()
+			<< "EMA: " << setw(10) << ema.getNewValue()
 			//<< "Classic: " << setw(8) << simple_moving_average()
 			;
 	}
