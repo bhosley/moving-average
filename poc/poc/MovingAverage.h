@@ -8,18 +8,11 @@ public:
 	MovingAverage(float f);
 	~MovingAverage();
 	float getValue();
-	float getNewValue();
-	virtual void newValue();
 	virtual float addValue(float f);
-	void changeValue(int i, float f);
-	int x = 0;
 protected:
-	void init(float a[], int initialValue);
+	int x = 0;
 	void init(float f);
 	float currentValue;
-	int y;
-	std::vector<float> yVals;
-	int currentIndex = 0;
 private:
 };
 
