@@ -3,6 +3,8 @@
 #include <vector>
 #include <math.h>
 
+MovingAverage::MovingAverage(float f) { init(f); }
+void MovingAverage::init(float f) { currentValue = f; x++; }
 MovingAverage::MovingAverage() { float a[] = { 0.0f }; init(a, 0); }
 void MovingAverage::init(float a[], int initialValue)
 {
@@ -58,16 +60,19 @@ void SimpleMovingAverage::newValue()
 
 /*--------------------Cumulative-Moving-Average--------------------*/
 
-void CumulativeMovingAverage::newValue() 
+CumulativeMovingAverage::CumulativeMovingAverage() {}
+CumulativeMovingAverage::CumulativeMovingAverage(float f) { init(f); }
+float CumulativeMovingAverage::addValue(float f)
 {
 	// Arithmetic mean of accumulating values
-	currentValue = ((currentValue * x) + yVals[currentIndex]) / (x + 1);
-	currentIndex = (currentIndex + rand() % 2 + 1) % y;
+	currentValue = ((currentValue * x) + f) / (x + 1);
 	x++;
+	return currentValue;
 }
 
 /*---------------------Weighted-Moving-Average---------------------*/
 
+WeightedMovingAverage::WeightedMovingAverage(float f) { init(f); }
 float WeightedMovingAverage::addValue(float f)
 {
 	// Arithmetic mean in which earlier values have higher weight
@@ -78,6 +83,8 @@ float WeightedMovingAverage::addValue(float f)
 
 /*-------------------Exponential-Moving-Average--------------------*/
 
+ExponentialMovingAverage::ExponentialMovingAverage() {}
+ExponentialMovingAverage::ExponentialMovingAverage(float f) { init(f); }
 float ExponentialMovingAverage::addValue(float f)
 {
 	currentNumerator = currentNumerator + (f * pow( a,x ));
