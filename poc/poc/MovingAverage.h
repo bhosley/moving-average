@@ -9,7 +9,7 @@ public:
 	float getValue();
 	float getNewValue();
 	virtual void newValue();
-	void addValue(float f);
+	virtual float addValue(float f);
 	void changeValue(int i, float f);
 protected:
 	void init(float a[], int initialValue);
@@ -49,10 +49,10 @@ private:
 class ExponentialMovingAverage : public MovingAverage
 {
 public:
-	void newValue() override;
+	float addValue(float f) override;
+	float a = 0.9f;
 private:
 	float currentDenominator = 0.0f;
 	float currentNumerator = 0.0f;
-	float a = 0.9f;
 	int x = 1;
 };
