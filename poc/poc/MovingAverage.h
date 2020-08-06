@@ -42,7 +42,7 @@ private:
 class WeightedMovingAverage : public MovingAverage
 {
 public:
-	void newValue() override;
+	float addValue(float f) override;
 private:
 	int x = 1;
 };
