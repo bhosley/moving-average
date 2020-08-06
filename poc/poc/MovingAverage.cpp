@@ -1,41 +1,19 @@
 #include "MovingAverage.h"
 #include <stdlib.h>
-#include <vector>
 #include <math.h>
 
+MovingAverage::MovingAverage() {}
 MovingAverage::MovingAverage(float f) { init(f); }
-void MovingAverage::init(float f) { currentValue = f; x++; }
-MovingAverage::MovingAverage() { float a[] = { 0.0f }; init(a, 0); }
-void MovingAverage::init(float a[], int initialValue)
-{
-	currentValue = initialValue;
-	y = sizeof(a) / sizeof(a[0]);
-	yVals.assign(a, a + y);
-}
-
 MovingAverage::~MovingAverage() {}
+void MovingAverage::init(float f) { currentValue = f; x++; }
 float MovingAverage::getValue()
 {
 	return currentValue;
 }
-float MovingAverage::getNewValue()
-{
-	newValue();
-	return currentValue;
-}
-void MovingAverage::newValue() 
-{
-	currentValue++;
-}
 float MovingAverage::addValue(float f)
 {
-	yVals.push_back(f);
-	y++;
-	return currentValue;
-}
-void MovingAverage::changeValue(int i, float f)
-{
-	yVals[i] = f;
+	currentValue++;
+	return f;
 }
 
 /*----------------------Random-Moving-Average----------------------*/
