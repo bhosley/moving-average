@@ -12,16 +12,15 @@ float MovingAverage::getValue()
 }
 float MovingAverage::addValue(float f)
 {
-	currentValue++;
-	return f;
+	return ++currentValue;
 }
 
 /*----------------------Random-Moving-Average----------------------*/
 
 float RandomMovingAverage::addValue(float f)
 {
-	float a = rand() % 10 + 1;		// random(1, 10);
-	float b = rand() % 10 + 1;		// random(1, 10);
+	float a = rand() % 16;		// random(0, 15);
+	float b = rand() % 16;		// random(0, 15);
 	currentValue = currentValue + ((a-b)/15);
 	return currentValue;
 }
@@ -58,8 +57,8 @@ WeightedMovingAverage::WeightedMovingAverage(float f) { init(f); }
 float WeightedMovingAverage::addValue(float f)
 {
 	// Arithmetic mean in which earlier values have higher weight
+	currentValue = ((currentValue * (x+1)) + (f * x)) / ((2*x) + 1);
 	x++;
-	currentValue = ((currentValue * x) + f) / (x);
 	return currentValue;
 }
 
