@@ -1,6 +1,4 @@
 #pragma once
-#include <vector>
-
 class MovingAverage
 {
 public:
@@ -12,7 +10,7 @@ public:
 protected:
 	int x = 0;
 	void init(float f);
-	float currentValue;
+	float currentValue = 0;
 private:
 };
 
